@@ -1,5 +1,6 @@
 package com.example.calendarfrontend;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,10 +17,13 @@ public class PropertiesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_properties);
+        setContentView(R.layout.properties_layout);
         theDate = (TextView) findViewById(R.id.date);
         btnAddToCalendar = (Button) findViewById(R.id.btnSaveToCalendar);
 
+        Intent incomingIntent = getIntent();
+        String date = incomingIntent.getStringExtra("date");
+        theDate.setText(date);
 
         btnAddToCalendar.setOnClickListener(new View.OnClickListener(){
             @Override

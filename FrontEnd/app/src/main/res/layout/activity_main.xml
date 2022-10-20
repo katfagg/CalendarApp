@@ -18,6 +18,13 @@
         android:gravity="center"
         android:textStyle="bold"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGoToCalendar"
+        android:text="Go to calendar"/>
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
