@@ -19,7 +19,7 @@ public class PropertiesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.properties_layout);
         theDate = (TextView) findViewById(R.id.date);
-        btnAddToCalendar = (Button) findViewById(R.id.btnSaveToCalendar);
+        btnAddToCalendar = (Button) findViewById(R.id.btnAddToCalendar);
 
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
