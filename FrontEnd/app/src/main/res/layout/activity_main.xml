@@ -4,11 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< Updated upstream
     android:background="@color/beige"
     tools:context=".MainActivityKot">
+=======
+    android:background="#D0F6F3"
+    tools:context=".MainActivity">
+>>>>>>> Stashed changes
 
-    <TextView
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
+<<<<<<< Updated upstream
         android:layout_height="wrap_content"
         android:id="@+id/sign_in"
         android:text="Sign In"
@@ -87,6 +94,9 @@
         android:src="@drawable/google_logo_9808" />
 
 
+=======
+        android:layout_height="match_parent" />
+>>>>>>> Stashed changes
 
 
 </RelativeLayout>
