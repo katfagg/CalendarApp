@@ -1,4 +1,7 @@
 package com.example.calendarfrontend
 
-class TaskItemClickListener {
+interface TaskItemClickListener
+{
+    fun editTaskItem(taskItem: TaskItem)
+    fun completeTaskItem(taskItem: TaskItem)
 }
