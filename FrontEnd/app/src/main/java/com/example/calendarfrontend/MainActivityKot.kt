@@ -3,6 +3,7 @@ package com.example.calendarfrontend
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.calendarfrontend.databinding.ToDoMainBinding
 
 class MainActivityKot : AppCompatActivity() {
@@ -18,10 +19,18 @@ class MainActivityKot : AppCompatActivity() {
             binding.newTaskButton.setOnClickListener {
                 NewTaskSheet(null).show(supportFragmentManager, "newTaskTag")
             }
+            setRecyclerView()
+        }
 
+    private fun setRecyclerView() {
+        val mainActivity = this
+        taskViewModel.taskItems.observe(this){
+            binding.todoListRecyclerView.apply {
+                layoutManager = LinearLayoutManager(applicationContext)
+                adapter = TaskItemAdapter(it)
 
-
-
+            }
         }
     }
+}
 
