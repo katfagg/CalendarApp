@@ -10,7 +10,6 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
 {
     public final TextView dayOfMonth;
     private final CalendarAdapter.OnItemListener onItemListener;
-
     public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener)
     {
         super(itemView);
@@ -20,7 +19,8 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)
+    {
         onItemListener.onItemClick(getAdapterPosition(), (String) dayOfMonth.getText());
     }
 }

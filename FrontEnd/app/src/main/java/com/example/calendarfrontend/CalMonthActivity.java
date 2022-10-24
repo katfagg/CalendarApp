@@ -1,27 +1,26 @@
 package com.example.calendarfrontend;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.sql.Array;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-
-public class CalMonthActivity extends AppCompatActivity implements View.OnClickListener, CalendarAdapter.OnItemListener {
-
+public class CalMonthActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
+{
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private LocalDate selectedDate;
+
+    private static final String TAG = "CalMonthActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,7 +47,6 @@ public class CalMonthActivity extends AppCompatActivity implements View.OnClickL
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
-
     }
 
     private ArrayList<String> daysInMonthArray(LocalDate date)
@@ -72,9 +70,7 @@ public class CalMonthActivity extends AppCompatActivity implements View.OnClickL
                 daysInMonthArray.add(String.valueOf(i - dayOfWeek));
             }
         }
-        return daysInMonthArray;
-
-
+        return  daysInMonthArray;
     }
 
     private String monthYearFromDate(LocalDate date)
@@ -98,25 +94,10 @@ public class CalMonthActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onItemClick(int position, String dayText)
     {
-        if(dayText.equals(""))
+        if(!dayText.equals(""))
         {
             String message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate);
-            Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
     }
-
-//    Buttons
-    @Override
-    public void onClick(View view)
-    {
-        switch (view.getId()) {
-            case R.id.previousMonth:
-                previousMonthAction(view);
-            case R.id.nextMonth:
-                nextMonthAction(view);
-        }
-    }
-
-
-
 }

@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
+class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
 {
-
     private final ArrayList<String> daysOfMonth;
     private final OnItemListener onItemListener;
 
-    public CalendarAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener) {
+    public CalendarAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener)
+    {
         this.daysOfMonth = daysOfMonth;
         this.onItemListener = onItemListener;
     }
@@ -43,10 +43,8 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
         return daysOfMonth.size();
     }
 
-    public interface OnItemListener
+    public interface  OnItemListener
     {
         void onItemClick(int position, String dayText);
     }
-
-
 }
