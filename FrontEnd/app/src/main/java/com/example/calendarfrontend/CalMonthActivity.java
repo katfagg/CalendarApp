@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -103,6 +104,6 @@ public class CalMonthActivity extends AppCompatActivity implements CalendarAdapt
 
     public void weeklyAction(View view)
     {
-        startActivity(new Intent(this, WeekViewActivity.class));
+        startActivity(new Intent(this, CalWeekActivity.class));
     }
 }
