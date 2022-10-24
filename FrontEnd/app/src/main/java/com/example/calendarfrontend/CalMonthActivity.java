@@ -100,4 +100,9 @@ public class CalMonthActivity extends AppCompatActivity implements CalendarAdapt
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
     }
+
+    public void weeklyAction(View view)
+    {
+        startActivity(new Intent(this, WeekViewActivity.class));
+    }
 }
