@@ -1,5 +1,8 @@
 package com.example.calendarfrontend;
 
+import static com.example.calendarfrontend.CalendarUtils.daysInMonthArray;
+import static com.example.calendarfrontend.CalendarUtils.monthYearFromDate;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,7 +29,7 @@ public class CalMonthActivity extends AppCompatActivity implements CalendarAdapt
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.cal_month_layout);
         initWidgets();
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
@@ -73,9 +76,7 @@ public class CalMonthActivity extends AppCompatActivity implements CalendarAdapt
 
     public void weeklyAction(View view)
     {
-        startActivity(new Intent(this, WeekViewActivity.class));
+        startActivity(new Intent(this, CalWeekActivity.class));
     }
 }
-
-
 

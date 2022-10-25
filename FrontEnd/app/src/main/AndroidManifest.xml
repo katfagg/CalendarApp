@@ -13,16 +13,11 @@
         android:theme="@style/Theme.CalendarFrontEnd"
         tools:targetApi="31">
         <activity
-            android:name=".EventEditActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".CalWeekActivity"
-            android:exported="false">
-        </activity>
+            android:name=".CalDayActivity"
+            android:exported="true" />
+        <activity android:name=".EventEditActivity" />
+        <activity android:name=".CalWeekActivity" />
+        <activity android:name=".CalMonthActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -31,6 +26,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CalMonthActivity" />
     </application>
 </manifest>

@@ -1,5 +1,8 @@
 package com.example.calendarfrontend;
 
+import static com.example.calendarfrontend.CalendarUtils.daysInWeekArray;
+import static com.example.calendarfrontend.CalendarUtils.monthYearFromDate;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +28,7 @@ public class CalWeekActivity extends AppCompatActivity implements CalendarAdapte
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_week_view);
+        setContentView(R.layout.cal_week_layout);
         initWidgets();
         setWeekView();
     }
@@ -90,6 +93,6 @@ public class CalWeekActivity extends AppCompatActivity implements CalendarAdapte
 
     public void dailyAction(View view)
     {
-        startActivity(new Intent(this, DailyCalendarActivity.class));
+        startActivity(new Intent(this, CalDayActivity.class));
     }
 }

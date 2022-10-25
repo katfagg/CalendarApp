@@ -1,6 +1,8 @@
 package com.example.calendarfrontend;
 
 
+import static com.example.calendarfrontend.CalendarUtils.selectedDate;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +29,7 @@ public class CalDayActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_calendar);
+        setContentView(R.layout.cal_day_layout);
         initWidgets();
     }
 
@@ -76,13 +78,13 @@ public class CalDayActivity extends AppCompatActivity
 
     public void previousDayAction(View view)
     {
-        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusDays(1);
+        selectedDate = selectedDate.minusDays(1);
         setDayView();
     }
 
     public void nextDayAction(View view)
     {
-        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusDays(1);
+        selectedDate = selectedDate.plusDays(1);
         setDayView();
     }
 
