@@ -3,6 +3,7 @@ package com.example.calendarfrontend;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -26,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent (MainActivity.this,NoteActivity.class);
+                    startActivity(intent);
+
                 } else
                     Toast.makeText(MainActivity.this, "LOGIN UNSUCCESSFUL", Toast.LENGTH_SHORT).show();
             }

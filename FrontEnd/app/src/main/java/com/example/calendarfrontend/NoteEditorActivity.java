@@ -1,11 +1,14 @@
 package com.example.calendarfrontend;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
 import java.util.HashSet;
@@ -23,14 +26,14 @@ public class NoteEditorActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
          noteId = intent.getIntExtra("noteId", -1);
-         MainActivity.arrayAdapter.notifyDataSetChanged();
+         NoteActivity.arrayAdapter.notifyDataSetChanged();
 
         if (noteId != 1) {
 
-            editText.setText(MainActivity.notes.get(noteId)); // checks for valid note ID
+            editText.setText(NoteActivity.notes.get(noteId)); // checks for valid note ID
         } else {
-            MainActivity.notes.add("");
-            noteId = MainActivity.notes.size() - 1; // if the note we added was the 3rd item it would have an id of 2, the size of note arraylist would be 3, minus 1 is 2
+            NoteActivity.notes.add("");
+            noteId = NoteActivity.notes.size() - 1; // if the note we added was the 3rd item it would have an id of 2, the size of note arraylist would be 3, minus 1 is 2
         }
 
 //        created an edit text and we getting the note ID value from the intent (forming an action on the screen / start activity), if its not -1 then we get the value from the notes text and displaying it in the edit text.
@@ -44,12 +47,12 @@ public class NoteEditorActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                MainActivity.notes.set(noteId, String.valueOf(charSequence));
-                MainActivity.arrayAdapter.notifyDataSetChanged(); //saving the content of the item
+                NoteActivity.notes.set(noteId, String.valueOf(charSequence));
+                NoteActivity.arrayAdapter.notifyDataSetChanged(); //saving the content of the item
 
                 SharedPreferences sharedPreferences = getApplication().getSharedPreferences("com.notes", Context.MODE_PRIVATE);
 
-                HashSet<String> set = new HashSet(MainActivity.notes);
+                HashSet<String> set = new HashSet(NoteActivity.notes);
 
                 sharedPreferences.edit().putStringSet("notes", set).apply();
             }

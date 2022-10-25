@@ -23,6 +23,7 @@ public class NoteActivity extends AppCompatActivity {
         static ArrayList<String> notes = new ArrayList<>();
         static ArrayAdapter arrayAdapter;
 
+
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             MenuInflater menuInflater = getMenuInflater();
@@ -48,7 +49,7 @@ public class NoteActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.notes);
 
             ListView listView = (ListView) findViewById(R.id.listView);
 
