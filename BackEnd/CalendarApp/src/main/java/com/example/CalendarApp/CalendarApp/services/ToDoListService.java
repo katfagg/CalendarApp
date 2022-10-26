@@ -5,6 +5,9 @@ import com.example.CalendarApp.CalendarApp.repositories.ToDoListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Time;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +24,9 @@ public class ToDoListService {
         return toDoListRepository.findById(id);
     }
 
-    public ToDoList saveToDoList(UserService userService){
-        ToDoList newToDoList = new ToDoList(userService);
+    public ToDoList saveToDoList(String name, Date date, Time time, long userId){
+        User user = userService.getUserById(userId).get();
+        ToDoList newToDoList = new ToDoList(name, date, time, user);
         toDoListRepository.save(newToDoList);
         return newToDoList;
     }

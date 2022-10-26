@@ -29,8 +29,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> addNewUser(@RequestParam String email){
-        User savedUser = userService.saveUser(email);
+    public ResponseEntity<User> addNewUser(@RequestParam String email, @RequestParam String password){
+        User savedUser = userService.saveUser(email,password);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
 
     }

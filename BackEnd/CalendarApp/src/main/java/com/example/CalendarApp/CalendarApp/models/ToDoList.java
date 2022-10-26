@@ -28,10 +28,11 @@ public class ToDoList {
     @JsonIgnoreProperties({"toDoList"})
     private User user;
 
-    public ToDoList(String name, Date date, Time time){
+    public ToDoList(String name, Date date, Time time, User user){
         this.name = name;
         this.date = date;
         this.time = time;
+        this.user = user;
     }
 
     public ToDoList(){
@@ -70,4 +71,11 @@ public class ToDoList {
         this.time = time;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

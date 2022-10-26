@@ -1,23 +1,26 @@
 package com.example.CalendarApp.CalendarApp.DataLoader;
 
-import com.example.CalendarApp.CalendarApp.repositories.ToDoListRepository;
-import com.example.CalendarApp.CalendarApp.repositories.UserRepository;
+import com.example.CalendarApp.CalendarApp.models.Note;
+import com.example.CalendarApp.CalendarApp.repositories.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
-public class DataLoader {
+public class DataLoader implements ApplicationRunner {
 
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
-    ToDoListRepository toDoListRepository;
+    NoteRepository noteRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        //add set values
+
+        Note note1 = new Note("Example note... ");
+
+        noteRepository.saveAll(Arrays.asList(note1));
     }
 }
 

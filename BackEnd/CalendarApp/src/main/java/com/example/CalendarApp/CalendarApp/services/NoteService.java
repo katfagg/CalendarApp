@@ -21,8 +21,9 @@ public class NoteService {
         return noteRepository.findById(id);
     }
 
-    public Note saveNote(UserService userService){
-        Note newNote = new Note(userService);
+    public Note saveNote(String name, long userId){
+        User user = userService.getUserById(userId).get();
+        Note newNote = new Note(name, user);
         noteRepository.save(newNote);
         return newNote;
     }

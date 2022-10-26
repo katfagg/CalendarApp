@@ -18,9 +18,10 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User saveUser(String email){
-        User newUser = new User(email);
+    public User saveUser(String userEmail, String userPassword){
+        User newUser = new User(userEmail, userPassword);
         userRepository.save(newUser);
         return newUser;
     }
+
 }
