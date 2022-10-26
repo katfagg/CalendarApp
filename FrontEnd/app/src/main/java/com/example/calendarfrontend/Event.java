@@ -1,5 +1,7 @@
 package com.example.calendarfrontend;
 
+import android.view.View;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -31,11 +33,22 @@ public class Event
             int cellHour = time.getHour();
             if(event.getDate().equals(date) && eventHour == cellHour)
                 events.add(event);
+
         }
 
         return events;
     }
 
+    public static void removeEvent(String name, LocalDate date, LocalTime time){
+        for(Event event : eventsList)
+        {
+            if(event.name == name && event.date == date && event.time == time){
+                eventsList.remove(event);
+            }
+
+        }
+
+    }
 
     private String name;
     private LocalDate date;

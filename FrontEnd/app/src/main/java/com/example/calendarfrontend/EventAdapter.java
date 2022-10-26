@@ -34,4 +34,8 @@ public class EventAdapter extends ArrayAdapter<Event>
         eventCellTV.setText(eventTitle);
         return convertView;
     }
+
+    public void removeEventHandler(Event event){
+        Event.removeEvent(event.getName(),event.getDate(),event.getTime());
+}
 }

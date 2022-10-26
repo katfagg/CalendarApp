@@ -92,4 +92,5 @@ public class CalDayActivity extends AppCompatActivity
     {
         startActivity(new Intent(this, EventEditActivity.class));
     }
+
 }
