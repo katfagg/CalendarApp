@@ -43,10 +43,45 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Time"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/eventHourET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/eventMinET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:ems="10"
+        android:inputType="number"/>
 
     <Button
         android:layout_marginTop="20dp"

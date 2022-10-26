@@ -11,7 +11,7 @@ import java.time.LocalTime;
 
 public class EventEditActivity extends AppCompatActivity
 {
-    private EditText eventNameET;
+    private EditText eventNameET, eventHourET, eventMinET;
     private TextView eventDateTV, eventTimeTV;
 
     private LocalTime time;
@@ -24,7 +24,9 @@ public class EventEditActivity extends AppCompatActivity
         initWidgets();
         time = LocalTime.now();
         eventDateTV.setText("Date: " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
-        eventTimeTV.setText("Time: " + CalendarUtils.formattedTime(time));
+        eventTimeTV.setText("Time: ");
+        eventHourET.setText(Integer.toString(time.getHour()));
+        eventMinET.setText(Integer.toString(time.getMinute()));
     }
 
     private void initWidgets()
@@ -32,11 +34,14 @@ public class EventEditActivity extends AppCompatActivity
         eventNameET = findViewById(R.id.eventNameET);
         eventDateTV = findViewById(R.id.eventDateTV);
         eventTimeTV = findViewById(R.id.eventTimeTV);
+        eventHourET = findViewById(R.id.eventHourET);
+        eventMinET = findViewById(R.id.eventMinET);
     }
 
     public void saveEventAction(View view)
     {
         String eventName = eventNameET.getText().toString();
+        time = LocalTime.of(Integer.parseInt(eventHourET.getText().toString()), Integer.parseInt(eventMinET.getText().toString()));
         Event newEvent = new Event(eventName, CalendarUtils.selectedDate, time);
         Event.eventsList.add(newEvent);
         finish();
