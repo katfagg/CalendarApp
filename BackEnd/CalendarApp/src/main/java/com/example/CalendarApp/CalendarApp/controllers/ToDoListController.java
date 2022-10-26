@@ -1,7 +1,7 @@
 package com.example.CalendarApp.CalendarApp.controllers;
 
 import com.example.CalendarApp.CalendarApp.models.ToDoList;
-import com.example.CalendarApp.CalendarApp.models.Message;
+import com.example.CalendarApp.CalendarApp.models.User;
 import com.example.CalendarApp.CalendarApp.services.ToDoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,16 +18,9 @@ public class ToDoListController {
     @Autowired
     ToDoListService toDoListService;
 
-    @GetMapping
-    public ResponseEntity<List<ToDoList>> getAllToDoLists(){
-        List<ToDoList> toDoLists;
-        toDoLists = toDoListService.getToDoLists();
-        return new ResponseEntity<>(toDoLists, HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<ToDoList> getToDoListById(@PathVariable long id){
-        Optional<ToDoList> toDoList = toDoListService.getToDoListById(id);
+    @GetMapping(value = "/{email}")
+    public ResponseEntity<ToDoList> getToDoListById(@PathVariable long email){
+        Optional<ToDoList> toDoList = toDoListService.getToDoListById(email);
         if (toDoList.isPresent()){
             return  new ResponseEntity<>(toDoList.get(),HttpStatus.OK);
         } else {
@@ -37,12 +30,11 @@ public class ToDoListController {
     }
 
     @PostMapping
-    public ResponseEntity<Message> startNewToDoList (@RequestParam long toDoListId){
-        Message message = toDoListService.startNewToDoList(toDoListId);
-        return new ResponseEntity<>(message, HttpStatus.CREATED);
+    public ResponseEntity<ToDoList> startNewToDoList (@RequestParam long toDoListId){
+        ToDoList savedToDoList = toDoListService.saveToDoList(toDoListId);
+        return new ResponseEntity<>(savedToDoList, HttpStatus.CREATED);
     }
 
-    //Patch request to update list
     //Delete list by id
 
 }

@@ -17,20 +17,14 @@ public class ToDoListService {
     @Autowired
     ToDoListRepository toDoListRepository;
 
-    public List<ToDoList> getToDoLists(){
-        return toDoListRepository.findAll();
-    }
-
-    public Message startNewToDoList(long userId){
-        User user = userService.getUserById(userId).get();
-        ToDoList toDoList = new ToDoList(user);
-
-        toDoListRepository.save(toDoList);
-        return new Message(String.format("Have you completed the task ", toDoList.getUser().getEmail(), "?"));
-    }
-
     public Optional<ToDoList> getToDoListById(Long id){
         return toDoListRepository.findById(id);
+    }
+
+    public ToDoList saveToDoList(UserService userService){
+        ToDoList newToDoList = new ToDoList(userService);
+        toDoListRepository.save(newToDoList);
+        return newToDoList;
     }
 
 }

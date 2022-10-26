@@ -17,12 +17,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers(){
-        List<User> users = userService.getAllUsers();
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
-
     //Might need to change this from id to email
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id){
@@ -41,7 +35,7 @@ public class UserController {
 
     }
 
-    //Delete User by id or email
+    // Patch to change password
 
 }
 
