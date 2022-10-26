@@ -25,7 +25,7 @@ public class NoteEditorActivity extends AppCompatActivity {
         EditText editText = (EditText)  findViewById(R.id.editText);
 
         Intent intent = getIntent();
-         noteId = intent.getIntExtra("noteId", -1);
+         noteId = intent.getIntExtra("noteId", 1);
          NoteActivity.arrayAdapter.notifyDataSetChanged();
 
         if (noteId != 1) {
@@ -33,7 +33,7 @@ public class NoteEditorActivity extends AppCompatActivity {
             editText.setText(NoteActivity.notes.get(noteId)); // checks for valid note ID
         } else {
             NoteActivity.notes.add("");
-            noteId = NoteActivity.notes.size() - 1; // if the note we added was the 3rd item it would have an id of 2, the size of note arraylist would be 3, minus 1 is 2
+            noteId = NoteActivity.notes.size() -1; // if the note we added was the 3rd item it would have an id of 2, the size of note arraylist would be 3, minus 1 is 2
         }
 
 //        created an edit text and we getting the note ID value from the intent (forming an action on the screen / start activity), if its not -1 then we get the value from the notes text and displaying it in the edit text.
