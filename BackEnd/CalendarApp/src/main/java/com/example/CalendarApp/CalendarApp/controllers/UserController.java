@@ -29,13 +29,17 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> addNewUser(@RequestParam String email, @RequestParam String password){
-        User savedUser = userService.saveUser(email,password);
+    public ResponseEntity<User> addNewUser(@RequestBody String name, @RequestParam String email, @RequestBody String password){
+        User savedUser = userService.saveUser(name, email,password);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
 
     }
 
-    // Patch to change password
+    @PatchMapping (value = "/{id}/password")
+    public ResponseEntity<User> updateRecipesIngredient(@RequestBody String password, @PathVariable Long id) {
+        User updatedPassword = userService.addPassword(password, id);
+        return new ResponseEntity<>(updatedPassword, HttpStatus.OK);
+    }
 
 }
 

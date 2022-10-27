@@ -5,7 +5,6 @@ import com.example.CalendarApp.CalendarApp.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,10 +17,16 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User saveUser(String userEmail, String userPassword){
-        User newUser = new User(userEmail, userPassword);
+    public User saveUser(String userName, String userEmail, String userPassword){
+        User newUser = new User(userName, userEmail, userPassword);
         userRepository.save(newUser);
         return newUser;
     }
+    public User addPassword(String password, Long id) {
+        User user = userRepository.findById(id).get();
+        user.getPassword().addAll(password);
+        userRepository.save(user);
+        return user;
 
+    }
 }

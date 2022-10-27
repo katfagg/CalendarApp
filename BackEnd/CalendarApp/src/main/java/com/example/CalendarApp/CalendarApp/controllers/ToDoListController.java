@@ -1,5 +1,6 @@
 package com.example.CalendarApp.CalendarApp.controllers;
 
+import com.example.CalendarApp.CalendarApp.models.Note;
 import com.example.CalendarApp.CalendarApp.models.ToDoList;
 import com.example.CalendarApp.CalendarApp.services.ToDoListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,10 @@ public class ToDoListController {
         return new ResponseEntity<>(savedToDoList, HttpStatus.CREATED);
     }
 
-    //Delete list by id
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Note> deleteToDoListById(@PathVariable long id){
+        toDoListService.deleteToDoListById(id);
+        return new ResponseEntity("Task removed successfully", HttpStatus.OK);
+    }
 
 }

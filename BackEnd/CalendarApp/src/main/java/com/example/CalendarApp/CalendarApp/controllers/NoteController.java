@@ -1,6 +1,7 @@
 package com.example.CalendarApp.CalendarApp.controllers;
 
 import com.example.CalendarApp.CalendarApp.models.Note;
+import com.example.CalendarApp.CalendarApp.models.User;
 import com.example.CalendarApp.CalendarApp.services.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,16 +35,16 @@ public class NoteController {
         return new ResponseEntity<>(savedNote, HttpStatus.CREATED);
     }
 
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<Note> deleteNoteById(@PathVariable long id){
-//
-//        var isRemoved = noteService.delete(id);
-//
-//        if (!isRemoved) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//
-//        return
-//    }
+    @PatchMapping (value = "/{id}/name")
+    public ResponseEntity<Note> updateNotesName(@RequestBody String name, @PathVariable Long id) {
+        Note updatedName = noteService.addName(name, id);
+        return new ResponseEntity<>(updatedName, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Note> deleteNoteById(@PathVariable long id){
+        noteService.deleteNoteById(id);
+        return new ResponseEntity("Note removed successfully", HttpStatus.OK);
+    }
 
 }

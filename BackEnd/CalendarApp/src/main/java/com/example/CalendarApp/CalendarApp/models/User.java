@@ -11,6 +11,9 @@ public class User {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column (name = "name")
+    private String name;
+
     @Column (name = "email")
     private String email;
 
@@ -22,7 +25,8 @@ public class User {
     @JsonIgnoreProperties({"user"})
     private ToDoList toDoList;
 
-    public User(String email, String password){
+    public User(String name, String email, String password){
+        this.name = name;
         this.email = email;
         this.password = password;
     }
@@ -37,6 +41,14 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
